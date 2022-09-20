@@ -5,9 +5,22 @@ use diesel::prelude::*;
 use diesel::result::Error;
 use diesel::{QueryDsl, RunQueryDsl};
 
+pub fn truncate(conn: &mut StoreConnection) -> Result<()> {
+    let query = "TRUNCATE TABLE player";
+    diesel::sql_query(query).execute(conn)?;
+    Ok(())
+}
+
 pub fn create(conn: &mut StoreConnection, entity: NewPlayer) -> Result<usize> {
     diesel::insert_into(player::table)
         .values(&entity)
+        .execute(conn)
+        .map_err(Into::into)
+}
+
+pub fn bulk_insert(conn: &mut StoreConnection, entities: &Vec<NewPlayer>) -> Result<usize> {
+    diesel::insert_into(player::table)
+        .values(entities)
         .execute(conn)
         .map_err(Into::into)
 }
