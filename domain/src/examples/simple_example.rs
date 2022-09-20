@@ -7,7 +7,7 @@ pub fn execute(store_connection: &mut StoreConnection) -> Result<()> {
     adapters::player::create(
         store_connection,
         entities::NewPlayer {
-            id: "1",
+            id: "test",
             coins: Some(1),
             goods: Some(1),
         },
