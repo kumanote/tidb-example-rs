@@ -1,18 +1,23 @@
 [package]
-name = "domain"
+name = "tidb-example-server"
 version = "0.1.0"
 authors = ["Hiroki Tanaka <support@kumano-te.com>"]
-publish = false
+repository = "https://github.com/kumanote/tidb-example-rs"
 edition = "2021"
 
 [dependencies]
 anyhow = { version = "1.0", features = ["backtrace"] }
 thiserror = "1.0"
+futures = { version = "0.3" }
+tokio = { version = "1", features = ["full"] }
+actix-web = "4.2.1"
+actix-cors = "0.6.2"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-uuid = { version = "1.1", features = ["v4"] }
+dotenv = "0.15.0"
+structopt = "0.3.26"
+
+domain = { path = "../domain" }
 store = { path = "../store" }
 
 [dev-dependencies]
-dotenv = "0.15.0"
-serial_test = "0.9.0"

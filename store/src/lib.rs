@@ -15,6 +15,7 @@ pub use pool::*;
 
 pub use diesel::connection::{Connection, TransactionManager};
 pub use diesel::result::Error as DieselError;
+pub use r2d2::Error as R2D2Error;
 
 pub type StoreConnection = diesel::mysql::MysqlConnection;
 pub type StorePool = r2d2::Pool<diesel::r2d2::ConnectionManager<StoreConnection>>;

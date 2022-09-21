@@ -1,7 +1,5 @@
 # tidb-example-rs
 
-**!!!This example project is work in progress!!!**
-
 ## Outline
 
 It's an example for Rust and TiDB. Contains subproject:
@@ -37,8 +35,39 @@ It's an example used [diesel](https://diesel.rs/) with `mysql` feature to connec
 
 - Run `diesel migration run` to init schema in your tidb.
 - Run `cargo build --release` to build entrypoint to test.
-- Run `./target/release/tidb-eample-rs-cmd` to start.
+- Run `./target/release/tidb-example-cmd` to start.
 
 ### Expected output
 
-TBD
+diesel example [expected output](./Expected-Output.md#Diesel)
+
+### Code
+
+- [Main Entry](./cmd/src/main.rs)
+
+## http example
+
+It's an example service used diesel to connect TiDB.
+Provide a group of HTTP Restful interface.
+
+### Running way
+
+- Run `diesel migration run` to init schema in your tidb.
+- Run `cargo build --release` to build entrypoint to test.
+- Run `./target/release/tidb-example-server` to start.
+- Using [script](./http/request.sh) to request. It's based on `curl`
+
+### Expected output
+
+1. request [expected output](./Expected-Output.md#http-request)
+
+### Code
+
+- [Main Entry](./http/src/main.rs)
+
+
+## License
+
+This software includes the work that is distributed in the Apache License 2.0.
+
+- [tidb-example-golang/LICENSE](https://github.com/pingcap-inc/tidb-example-golang/blob/main/LICENSE)

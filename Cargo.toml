@@ -1,7 +1,9 @@
 [workspace]
 
 members = [
+    "cmd",
     "domain",
+    "http",
     "store",
 ]
 
